@@ -1,0 +1,22 @@
+{
+  "name": "includify",
+  "version": "1.0.0",
+  "description": "Include one file directly into another with browserify",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/benbria/includify.git"
+  },
+  "keywords": [
+    "browserify", "fs", "include"
+  ],
+  "author": "Jason Walton (https://github.com/jwalton)",
+  "contributors": [
+    "Jason Walton <dev@lucid.thedreaming.org> (https://github.com/jwalton)"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "through": "~2.3.1",
+    "falafel": "~0.2.1"
+  }
+}
