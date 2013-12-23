@@ -23,19 +23,28 @@ module.exports = transformTools.makeFalafelTransform("includify",
                 args[i] = Function(varNames, t).apply(null, vars);
             }
 
+            var includeType = args[1] || 'direct';
+
             // Resolve the file to require relative the file which is requiring it
             var includeFile = path.resolve(dirname, args[0])
 
             if(transformOptions.config && transformOptions.config.verbose) {
-                console.log("includify - " + file + ": including " + includeFile);
+                console.log("includify - " + file + ": including " + includeFile + " as " + includeType);
             }
 
-            fs.readFile(includeFile, "utf-8", function(err, content) {
+            fs.readFile(includeFile, function(err, contentBuffer) {
                 if(err) {
                     return done(err);
                 } else {
-                    node.update(content);
-                    done();
+                    if(includeType === "direct") {
+                        node.update(contentBuffer.toString("utf-8"));
+                        done();
+                    } else if(includeType === "base64") {
+                        node.update("'" + contentBuffer.toString("base64") + "'");
+                        done();
+                    } else {
+                        done(new Error("Unknown include type " + includeType));
+                    }
                 }
             });
         } else {
