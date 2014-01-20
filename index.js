@@ -5,7 +5,9 @@ var transformTools = require('browserify-transform-tools');
 var path = require('path');
 var fs = require('fs');
 
-module.exports = transformTools.makeFalafelTransform("includify",
+module.exports = transformTools.makeFalafelTransform("includify", {
+        jsFilesOnly: true
+    },
     function (node, transformOptions, done) {
         if (node.type === 'CallExpression' &&
             node.callee.type === 'Identifier' &&

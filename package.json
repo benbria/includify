@@ -1,6 +1,6 @@
 {
   "name": "includify",
-  "version": "1.0.2",
+  "version": "1.2.0",
   "description": "Include one file directly into another with browserify",
   "main": "index.js",
   "repository": {
@@ -16,6 +16,6 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "browserify-transform-tools": "~1.0.1"
+    "browserify-transform-tools": "~1.2.1"
   }
 }
