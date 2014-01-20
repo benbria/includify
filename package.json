@@ -1,6 +1,6 @@
 {
   "name": "includify",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Include one file directly into another with browserify",
   "main": "index.js",
   "repository": {
